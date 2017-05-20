@@ -1,0 +1,35 @@
+<section class="container">
+  <div class="rooms">
+    <div class="room" *ngFor="let room of rooms"
+         [class.currentRoom]="room.name === user.room.name"
+          (click)="switchRoom(user.room, room)">
+      <span class="nbUsers">{{room.nbUsers}}</span><span>{{room.name}}</span>
+    </div>
+  </div>
+
+  <div class="containerChat" *ngIf="isConnected">
+    <div class="textChat">
+      <div class="noText" *ngIf="!messages.length">
+        There is no message yet here !!
+      </div>
+      <ul class="listChat">
+        <li *ngFor="let msg of messages" class="messageContainer"
+            [class.itsMe]="msg.username === user.username">
+          <div class="avatar">
+            <div>{{msg.username[0]}}</div>
+          </div>
+          <div class="message">
+            <p>{{msg.value}}</p>
+            <time>
+              {{msg.timestamp | date:'mediumTime'}}
+            </time>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="">
+      <input #textMessage (keyup.enter)="update(textMessage.value)"
+             class="textInput" placeholder="Type your message here">
+    </div>
+  </div>
+</section>
