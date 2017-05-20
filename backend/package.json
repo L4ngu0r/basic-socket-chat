@@ -1,0 +1,20 @@
+{
+  "name": "basic-socket-chat-backend",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "dotenv": "^2.0.0",
+    "ent": "^2.2.0",
+    "redis": "^2.6.3",
+    "restify": "^4.1.1",
+    "socket.io": "^1.4.8"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  }
+}
